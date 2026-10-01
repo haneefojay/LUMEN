@@ -1,0 +1,46 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-10-01T18:07:47+01:00",
+  "title": "Design System: LUMEN",
+  "extensions": {
+    "colorMeta": {
+      "void": { "role": "neutral", "displayName": "Museum Void", "canonical": "#0A0A0C", "tonalRamp": ["#0A0A0C", "#111116", "#1A1A20"] },
+      "bone": { "role": "primary", "displayName": "Conservation Bone", "canonical": "#E8D5B7", "tonalRamp": ["#A99C87", "#E8D5B7", "#F2E6D1"] },
+      "slate": { "role": "secondary", "displayName": "Depth Slate", "canonical": "#6C7A89", "tonalRamp": ["#35414A", "#6C7A89", "#AAB5BE"] },
+      "contact-gold": { "role": "tertiary", "displayName": "Contact Gold", "canonical": "#C9A96E", "tonalRamp": ["#604619", "#C9A96E", "#DCC896"] }
+    },
+    "typographyMeta": {
+      "display": { "displayName": "Monumental Display", "purpose": "Thresholds, manifesto lines, and exhibit names." },
+      "body": { "displayName": "Interpretive Text", "purpose": "Short museum-style object notes." },
+      "label": { "displayName": "Accession Label", "purpose": "Coordinates, indices, and navigation." }
+    },
+    "shadows": [],
+    "motion": [
+      { "name": "enter", "value": "cubic-bezier(0.23, 1, 0.32, 1)", "purpose": "Clip reveals and short interface responses." },
+      { "name": "transport", "value": "cubic-bezier(0.77, 0, 0.175, 1)", "purpose": "Rare on-screen movement and gallery transitions." },
+      { "name": "frequent", "value": "180ms", "purpose": "Maximum duration for hover and press feedback." }
+    ],
+    "breakpoints": [{ "name": "compact", "value": "760px" }]
+  },
+  "components": [
+    {
+      "name": "Museum Navigation Label",
+      "kind": "nav",
+      "refersTo": "navigation-label",
+      "description": "A quiet mono chapter label with a directional underline.",
+      "html": "<button class=\"ds-nav-label\">COLLECTION</button>",
+      "css": ".ds-nav-label{min-height:44px;border:0;background:transparent;color:#E8D5B7;font:400 .67rem/1.45 'JetBrains Mono',monospace;letter-spacing:.13em;position:relative}.ds-nav-label:after{content:'';position:absolute;left:0;right:0;bottom:8px;height:1px;background:currentColor;transform:scaleX(0);transform-origin:right;transition:transform 180ms cubic-bezier(.23,1,.32,1)}.ds-nav-label:hover:after{transform:scaleX(1);transform-origin:left}.ds-nav-label:focus-visible{outline:1px solid #C9A96E;outline-offset:6px}"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Conservation Chamber",
+    "overview": "Museum authority frames matter that can only exist in computation. The interface recedes while scale, topology, light, and camera movement carry the experience.",
+    "keyCharacteristics": ["Asymmetric monumental crops", "Editorial serif versus technical mono", "Hairlines instead of cards", "Designed progressive degradation"],
+    "rules": [
+      { "name": "The Contact Rule", "body": "Gold is rare and appears only as response, classification, or focal spark.", "section": "colors" },
+      { "name": "The Real Depth Rule", "body": "Use space, light, and occlusion instead of glass-card simulations.", "section": "elevation" }
+    ],
+    "dos": ["Give one artifact visual sovereignty per chapter.", "Preserve semantic copy without WebGL."],
+    "donts": ["Do not introduce generic landing-page patterns.", "Do not use built-in easing or high-frequency ornamental motion."]
+  }
+}
