@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LUMEN — The Impossible Museum | Objects That Should Not Exist</title>
+  <meta name="description" content="LUMEN is an experimental digital atelier and museum exhibiting impossible 3D objects — non-Euclidean digital sculptures liberated from physical laws.">
+  <meta name="theme-color" content="#0A0A0C">
+  
+  <!-- Favicon / Branding -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><polygon points=%2250,5 95,50 50,95 5,50%22 fill=%22none%22 stroke=%22%23C9A96E%22 stroke-width=%228%22/><circle cx=%2250%22 cy=%2250%22 r=%2214%22 fill=%22%23E8D5B7%22/></svg>">
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="css/lumen.css">
+</head>
+<body>
+
+  <!-- WebGL Background Canvas -->
+  <canvas id="webgl-canvas" aria-hidden="true"></canvas>
+
+  <!-- Ambient Vignette -->
+  <div class="vignette-overlay" aria-hidden="true"></div>
+
+  <!-- Custom Cursor -->
+  <div id="custom-cursor" class="custom-cursor" aria-hidden="true"></div>
+  <div id="custom-cursor-dot" class="custom-cursor-dot" aria-hidden="true"></div>
+
+  <!-- ========================================================================
+       ARCHITECTURAL HEADER
+       ======================================================================== -->
+  <header class="site-header" role="banner">
+    <a href="#hero" class="brand-mark" aria-label="LUMEN Home">
+      <div class="brand-symbol" aria-hidden="true"></div>
+      <span class="brand-title">LUMEN</span>
+    </a>
+
+    <div class="header-telemetry">
+      <div class="telemetry-item">
+        Catalog <span>00-LMN</span>
+      </div>
+      <div class="telemetry-item">
+        Field Tensor <span>Ψ(x,t)</span>
+      </div>
+      <div class="telemetry-item audio-wrap">
+        <button id="audio-toggle-btn" class="audio-toggle-btn" type="button" aria-label="Toggle ambient soundscape">
+          <div class="audio-sound-wave" aria-hidden="true">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+          <span id="audio-status-text">Sound: Void</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main class="site-content" role="main">
+
+    <!-- ========================================================================
+         ACT I: HERO — THE THRESHOLD
+         ======================================================================== -->
+    <section id="hero" class="hero-section" aria-label="The Threshold">
+      <div class="hero-top-meta">
+        <div class="meta-curatorial">
+          <div>Atelier de Géométrie Impossible</div>
+          <div>Exhibition 01 // Non-Euclidean Topology</div>
+        </div>
+        <div class="meta-status-pill">
+          <span class="status-dot"></span>
+          <span>Stasis Coherent // 60 FPS</span>
+        </div>
+      </div>
+
+      <div class="hero-center-stage">
+        <h1 class="hero-monumental-title">
+          <span class="italic-glyph">L</span>UMEN
+        </h1>
+        <p class="hero-tagline">Objects that should not exist.</p>
+      </div>
+
+      <div class="hero-bottom-controls">
+        <a href="#manifesto" class="scroll-indicator" aria-label="Scroll to enter the archive">
+          <div class="scroll-line-container">
+            <div class="scroll-line-beam"></div>
+          </div>
+          <span>Enter the Archive</span>
+        </a>
+
+        <div class="orbit-cue">
+          <div class="orbit-cue-circle"></div>
+          <span>Drag cursor to warp artifact</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================================
+         ACT II: MANIFESTO — ON DIGITAL MATTER
+         ======================================================================== -->
+    <section id="manifesto" class="manifesto-section" aria-label="Manifesto on Digital Matter">
+      <div class="manifesto-header-row">
+        <span class="act-numeral">II</span>
+        <span class="manifesto-label">Act II // Manifesto on Digital Matter</span>
+        <span class="manifesto-coordinates">[37.7749° N, 122.4194° W -> Ψ(x,t)]</span>
+      </div>
+
+      <blockquote class="manifesto-prose">
+        Physical matter is condemned to <span class="slate-word">gravity, friction, and entropy</span>. 
+        In this void, sculpture is emancipated from mass. Here, <span class="highlight-word">surfaces have only one side</span>, 
+        crystals refract light from non-existent suns, and form obeys only the mathematics of the imagination.
+      </blockquote>
+
+      <div class="manifesto-footnotes">
+        <article class="footnote-card">
+          <span class="footnote-index">Specimen 01</span>
+          <h2 class="footnote-title">Zero Thermodynamic Decay</h2>
+          <p class="footnote-text">Unlike marble or bronze, digital matter retains its crystalline precision eternally, unaffected by oxidation or molecular drift.</p>
+        </article>
+
+        <article class="footnote-card">
+          <span class="footnote-index">Specimen 02</span>
+          <h2 class="footnote-title">Non-Orientable Normals</h2>
+          <p class="footnote-text">Each geometric artifact exhibited in LUMEN violates Euclid’s fifth postulate, allowing interiors to become exteriors in seamless continuum.</p>
+        </article>
+
+        <article class="footnote-card">
+          <span class="footnote-index">Specimen 03</span>
+          <h2 class="footnote-title">Algorithmic Stasis</h2>
+          <p class="footnote-text">Objects are held in active computational stasis — calculating 240,000 vertex trajectories per second in direct response to visitor observation.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- ========================================================================
+         ACT III: EXHIBIT HALL — THE HORIZONTAL GALLERY
+         ======================================================================== -->
+    <section id="exhibits" class="exhibit-hall-section" aria-label="Exhibit Hall">
+      <div class="gallery-container">
+        
+        <div class="gallery-top-bar">
+          <div class="gallery-title-group">
+            <span class="gallery-badge">Act III // Exhibit Hall</span>
+            <span class="gallery-sub">The Impossible Objects</span>
+          </div>
+
+          <nav class="gallery-nav-pills" aria-label="Exhibit selector">
+            <button class="exhibit-nav-btn active" data-index="0" type="button">01 // Klein Torus</button>
+            <button class="exhibit-nav-btn" data-index="1" type="button">02 // Polytope</button>
+            <button class="exhibit-nav-btn" data-index="2" type="button">03 // Ferrofluid</button>
+            <button class="exhibit-nav-btn" data-index="3" type="button">04 // Chrono-Sphere</button>
+          </nav>
+        </div>
+
+        <!-- 4-Screen Horizontal Track -->
+        <div class="gallery-horizontal-track">
+          
+          <!-- Exhibit 01 -->
+          <div class="exhibit-card" id="exhibit-1">
+            <article class="exhibit-dossier">
+              <div class="dossier-header">
+                <span class="specimen-id">Specimen // 001-KT</span>
+                <span class="specimen-status">4D Immersion</span>
+              </div>
+              <h2 class="dossier-title">The Klein Torus</h2>
+              <div class="dossier-subtitle">Non-Orientable Continuous Surface</div>
+              <p class="dossier-description">
+                A topological paradox folded through four spatial dimensions. An ant walking along its exterior perimeter would find itself upon the interior without ever traversing an edge.
+              </p>
+              
+              <div class="dossier-telemetry-grid">
+                <div class="telemetry-cell">
+                  <span class="cell-label">Topology</span>
+                  <span class="cell-value">Euler Characteristic: 0</span>
+                </div>
+                <div class="telemetry-cell">
+                  <span class="cell-label">Surface Metric</span>
+                  <span class="cell-value">One-Sided Manifold</span>
+                </div>
+                <div class="telemetry-cell">
+                  <span class="cell-label">Displacement</span>
+                  <span class="cell-value">Parametric Sine Wave</span>
+                </div>
+                <div class="telemetry-cell">
+                  <span class="cell-label">Stasis Freq</span>
+                  <span class="cell-value">0.008 rad/frame</span>
+                </div>
+              </div>
+
+              <div class="dossier-material-toggles">
+                <button class="material-btn active" data-mode="physical" type="button">Alabaster</button>
+                <button class="material-btn" data-mode="specular" type="button">Gold Specular</button>
+                <button class="material-btn" data-mode="wireframe" type="button">Ghost Wireframe</button>
+              </div>
+            </article>
+          </div>
+
+          <!-- Exhibit 02 -->
+          <div class="exhibit-card" id="exhibit-2">
+            <article class="exhibit-dossier">
+              <div class="dossier-header">
+                <span class="specimen-id">Specimen // 002-HP</span>
+                <span class="specimen-status">Symmetric Anomaly</span>
+              </div>
+              <h2 class="dossier-title">Hyper-Polytope</h2>
+              <div class="dossier-subtitle">Fractured Golden-Ratio Lattice</div>
+              <p class="dossier-description">
+                An icosahedral crystal cluster governed by non-periodic Penrose tiling. The internal golden facets reflect light that existed prior to the observer's arrival.
+              </p>
+              
+              <div class="dossier-telemetry-grid">
+                <div class="telemetry-cell">
+                  <span class="cell-label">Geometry</span>
+                  <span class="cell-value">Nested Icosahedron</span>
+                </div>
+                <div class="telemetry-cell">
+                  <span class="cell-label">Facet Angle</span>
+                  <span class="cell-value">137.5° Golden Pitch</span>
+                </div>
+                <div class="telemetry-cell">
+                  <span class="cell-label">Refraction</span>
+                  <span class="cell-value">η = 2.417 (Diamond)</span>
+                </div>
+                <div class="telemetry-cell">
+                  <span class="cell-label">Core State</span>
+                  <span class="cell-value">Octahedral Luminous</span>
+                </div>
+              </div>
+
+              <div class="dossier-material-toggles">
+                <button class="material-btn active" data-mode="physical" type="button">Alabaster</button>
+                <button class="material-btn" data-mode="specular" type="button">Gold Specular</button>
+                <button class="material-btn" data-mode="wireframe" type="button">Ghost Wireframe</button>
+              </div>
+            </article>
+          </div>
+
+          <!-- Exhibit 03 -->
+          <div class="exhibit-card" id="exhibit-3">
+            <article class="exhibit-dossier">
+              <div class="dossier-header">
+                <span class="specimen-id">Specimen // 003-FM</span>
+                <span class="specimen-status">Dynamic Metamorph</span>
+              </div>
+              <h2 class="dossier-title">Ferrofluid Monolith</h2>
+              <div class="dossier-subtitle">Liquid Magnetic Singularity</div>
+              <p class="dossier-description">
+                A suspended magnetic sphere that spikes along electromagnetic flux lines. It responds to cursor proximity with algorithmic organic turbulence.
+              </p>
+              
+              <div class="dossier-telemetry-grid">
+                <div class="telemetry-cell">
+                  <span class="cell-label">Flux Intensity</span>
+                  <span class="cell-value">3.24 Tesla</span>
+                </div>
+                <div class="telemetry-cell">
+                  <span class="cell-label">Viscosity</span>
+                  <span class="cell-value">0.082 Pa·s</span>
+                </div>
+                <div class="telemetry-cell">
+                  <span class="cell-label">Subdivision</span>
+                  <span class="cell-value">8,192 Dynamic Verts</span>
+                </div>
+                <div class="telemetry-cell">
+                  <span class="cell-label">Turbulence</span>
+                  <span class="cell-value">Harmonic Perlin Field</span>
+                </div>
+              </div>
+
+              <div class="dossier-material-toggles">
+                <button class="material-btn active" data-mode="physical" type="button">Alabaster</button>
+                <button class="material-btn" data-mode="specular" type="button">Gold Specular</button>
+                <button class="material-btn" data-mode="wireframe" type="button">Ghost Wireframe</button>
+              </div>
+            </article>
+          </div>
+
+          <!-- Exhibit 04 -->
+          <div class="exhibit-card" id="exhibit-4">
+            <article class="exhibit-dossier">
+              <div class="dossier-header">
+                <span class="specimen-id">Specimen // 004-CS</span>
+                <span class="specimen-status">Temporal Dilation</span>
+              </div>
+              <h2 class="dossier-title">Chrono-Disruption</h2>
+              <div class="dossier-subtitle">Asynchronous Gyro-Spheres</div>
+              <p class="dossier-description">
+                Three concentric gyroscopic rings rotating at mutually irrational angular velocities. The inner core exists slightly ahead in time relative to the outer ring.
+              </p>
+              
+              <div class="dossier-telemetry-grid">
+                <div class="telemetry-cell">
+                  <span class="cell-label">Axial Ratio</span>
+                  <span class="cell-value">√2 : √3 : √5</span>
+                </div>
+                <div class="telemetry-cell">
+                  <span class="cell-label">Dilation Δt</span>
+                  <span class="cell-value">+0.0034 seconds</span>
+                </div>
+                <div class="telemetry-cell">
+                  <span class="cell-label">Precession</span>
+                  <span class="cell-value">Three-Axis Chaotic</span>
+                </div>
+                <div class="telemetry-cell">
+                  <span class="cell-label">Frame Lock</span>
+                  <span class="cell-value">Absolute Invariant</span>
+                </div>
+              </div>
+
+              <div class="dossier-material-toggles">
+                <button class="material-btn active" data-mode="physical" type="button">Alabaster</button>
+                <button class="material-btn" data-mode="specular" type="button">Gold Specular</button>
+                <button class="material-btn" data-mode="wireframe" type="button">Ghost Wireframe</button>
+              </div>
+            </article>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================================
+         ACT IV: THE STUDIO — DECONSTRUCTION & CRAFT
+         ======================================================================== -->
+    <section id="studio" class="studio-section" aria-label="The Studio">
+      <div class="studio-grid">
+        
+        <div class="studio-narrative">
+          <div class="studio-act-tag">Act IV // The Atelier Workbench</div>
+          <h2 class="studio-title">How the Impossible is Crafted.</h2>
+          <p class="studio-body">
+            Every object in LUMEN is computed procedurally through mathematical harmonic functions rather than static 3D polygons. By manipulating coordinate space directly inside vertex shaders, geometry achieves organic elasticity impossible in physical casting.
+          </p>
+          <p class="studio-body">
+            Use the laboratory telemetry below to modulate the tensor fields of the primary seed artifact in real-time.
+          </p>
+
+          <!-- GLSL Shader Preview Terminal -->
+          <div class="shader-terminal" aria-label="Shader source code">
+            <div><span class="code-comment">// LUMEN Non-Euclidean Vertex Displacement</span></div>
+            <div><span class="code-type">vec3</span> <span class="code-fn">deformTensor</span>(<span class="code-type">vec3</span> p, <span class="code-type">float</span> t) {</div>
+            <div>&nbsp;&nbsp;<span class="code-type">float</span> w = <span class="code-fn">sin</span>(p.x * u_freq + t * 1.5) *</div>
+            <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-fn">cos</span>(p.y * u_freq + t * 1.2) *</div>
+            <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-fn">sin</span>(p.z * u_freq + t * 0.8);</div>
+            <div>&nbsp;&nbsp;<span class="code-keyword">return</span> p + p * (w * u_displacement);</div>
+            <div>}</div>
+          </div>
+        </div>
+
+        <!-- Interactive Workbench Control Panel -->
+        <div class="studio-workbench">
+          <div class="workbench-header">
+            <span class="workbench-title">Surface Tensor Controller</span>
+            <span class="workbench-status">Live GPU Link</span>
+          </div>
+
+          <div class="control-slider-group">
+            <div class="slider-label-row">
+              <span>Wave Displacement Amplitude</span>
+              <span id="val-displacement">0.35</span>
+            </div>
+            <input type="range" id="slider-displacement" class="lumen-slider" min="0.0" max="0.8" step="0.01" value="0.35" aria-label="Wave displacement amplitude">
+          </div>
+
+          <div class="control-slider-group">
+            <div class="slider-label-row">
+              <span>Harmonic Spatial Frequency</span>
+              <span id="val-frequency">2.2</span>
+            </div>
+            <input type="range" id="slider-frequency" class="lumen-slider" min="0.5" max="6.0" step="0.1" value="2.2" aria-label="Harmonic spatial frequency">
+          </div>
+
+          <div class="control-slider-group">
+            <div class="slider-label-row">
+              <span>Surface Alabaster Roughness</span>
+              <span id="val-roughness">0.22</span>
+            </div>
+            <input type="range" id="slider-roughness" class="lumen-slider" min="0.05" max="0.9" step="0.01" value="0.22" aria-label="Surface alabaster roughness">
+          </div>
+
+          <div class="dossier-telemetry-grid" style="margin-top: 0.5rem;">
+            <div class="telemetry-cell">
+              <span class="cell-label">GPU Render Target</span>
+              <span class="cell-value">WebGL 2.0 / Float32</span>
+            </div>
+            <div class="telemetry-cell">
+              <span class="cell-label">Vertex Pipeline</span>
+              <span class="cell-value">Real-time Procedural</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ========================================================================
+         ACT V: COLOPHON & FOOTER
+         ======================================================================== -->
+    <footer class="colophon-section" role="contentinfo">
+      <div class="colophon-top">
+        
+        <div class="colophon-brand-block">
+          <div class="colophon-logo">LUMEN</div>
+          <div class="colophon-tagline">"Objects that should not exist."</div>
+          <p class="colophon-statement">
+            An exploratory digital institution committed to the preservation, curation, and exhibition of mathematical geometries that defy physical thermodynamic existence.
+          </p>
+        </div>
+
+        <div class="colophon-column">
+          <span class="colophon-col-title">Archive Registry</span>
+          <ul class="colophon-list">
+            <li><a href="#hero">00 // The Threshold</a></li>
+            <li><a href="#manifesto">01 // Digital Matter</a></li>
+            <li><a href="#exhibits">02 // Exhibit Hall</a></li>
+            <li><a href="#studio">03 // The Atelier Studio</a></li>
+          </ul>
+        </div>
+
+        <div class="colophon-column">
+          <span class="colophon-col-title">Curatorial Specification</span>
+          <ul class="colophon-list">
+            <li>Type: Cormorant Garamond & Inter Tight</li>
+            <li>Engine: Three.js & Custom WebGL Shaders</li>
+            <li>Orchestration: GSAP ScrollTrigger</li>
+            <li>Palette: Void / Bone / Slate / Gold</li>
+          </ul>
+        </div>
+
+      </div>
+
+      <div class="colophon-bottom">
+        <div>Atelier LUMEN © 2026 // All impossible objects secured in stasis</div>
+        <div>Coordinates: 37°46'29.6"N 122°25'09.8"W // Restricted Archive</div>
+      </div>
+    </footer>
+
+  </main>
+
+  <!-- External & Core Libraries (Loaded from local libs) -->
+  <script src="libs/three.min.js"></script>
+  <script src="libs/gsap.min.js"></script>
+  <script src="libs/ScrollTrigger.min.js"></script>
+
+  <!-- LUMEN Custom Scripts -->
+  <script src="js/lumen-3d.js"></script>
+  <script src="js/lumen-motion.js"></script>
+  <script src="js/lumen-audio.js"></script>
+
+</body>
+</html>
